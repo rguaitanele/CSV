@@ -1,0 +1,61 @@
+NOTE  |Author: Reginaldo - ver. 1.0 - 22.02.2018
+NOTE  |
+NOTE  |Attack: Ballon, Lava, Resource Attack.
+NOTE  |Make these Troops: 30 Ballon, 2 lava,  Arq
+NOTE  |Will drop Lava, Ballon, All Heroes, CC and use Rage spell if enabled from GUI
+
+      |-----------------------------------------------------------------------------------------------|
+      |                                                                                               |
+      |                                                                                               |
+
+      |EXTR. GOLD |EXTR.ELIXIR|EXTR. DARK |DEPO. GOLD |DEPO.ELIXIR|DEPO. DARK |TOWNHALL   |FORCED SIDE|
+SIDE  |1          |1          |1          |           |           |1          |           |           |
+      |EAGLE      |INFERNO    |XBOW       |WIZTOWER   |MORTAR     |AIRDEFENSE |GEMBOX     |GEMBOX     |
+SIDEB |0          |0          |1          |0          |0          |2          |           |           |
+
+
+
+      |VECTOR_____|SIDE_______|DROP_POINTS|ADDTILES___|VERSUS_____|RANDOMX_PX_|RANDOMY_PX_|___________|MAKE VECTOR FOR FRONT SIDE ATTACK: Lava, BB, Ballon
+MAKE  |A          |FRONT-LEFT |10         |1          |INT-EXT    |0          |5          |           |vector for Lava front left 
+MAKE  |B          |FRONT-RIGHT|10         |1          |INT-EXT    |0          |5          |           |vector for Lava front right
+MAKE  |C          |FRONT-LEFT |10         |2          |INT-EXT    |0          |5          |           |vector for Ball front left n.1
+MAKE  |D          |FRONT-LEFT |10         |2          |EXT-INT    |0          |5          |           |vector for Ball front left n.2
+MAKE  |E          |FRONT-RIGHT|10         |2          |INT-EXT    |0          |5          |           |vector for Ball front right n.1
+MAKE  |F          |FRONT-RIGHT|10         |2          |EXT-INT    |0          |5          |           |vector for Ball front right n.2
+MAKE  |G          |FRONT-LEFT |10         |3          |INT-EXT    |0          |5          |           |vector for archers front left n.1
+MAKE  |H          |FRONT-LEFT |10         |3          |EXT-INT    |0          |5          |           |vector for archers front left n.2
+MAKE  |I          |FRONT-RIGHT|10         |3          |INT-EXT    |0          |5          |           |vector for archers front right n.1
+MAKE  |J          |FRONT-RIGHT|10         |3          |EXT-INT    |0          |5          |           |vector for archers front right n.2
+
+      |VECTOR_____|INDEX______|QTY_X_VECT_|TROOPNAME__|DELAY_DROP_|DELAYCHANGE|SLEEPAFTER_|___________|
+DROP  |A-B        |2          |1          |Lava       |5-10       |10-20      |1800-2200  |           |launch Lava (2 Lava, one front left and one front right) 
+DROP  |C-E        |1-8        |9-13       |Ball       |10-20      |10-20      |100-500    |           |
+DROP  |D-F        |5-9        |9-13       |Ball       |10-20      |10-20      |100-500    |           |
+
+
+WAIT  |1000-2000  |           |           |           |           |           |           |           |
+      |VECTOR_____|SIDE_______|DROP_POINTS|ADDTILES___|VERSUS_____|RANDOMX_PX_|RANDOMY_PX_|___________|
+MAKE  |S          |FRONT-LEFT |10         |-14        |INT-EXT    |0          |0          |           |
+MAKE  |M          |FRONT-RIGHT|10         |-7         |INT-EXT    |0          |0          |           |
+MAKE  |N          |FRONT-LEFT |10         |-9         |INT-EXT    |0          |0          |           |
+      |VECTOR_____|INDEX______|QTY_X_VECT_|TROOPNAME__|DELAY_DROP_|DELAYCHANGE|SLEEPAFTER_|___________|
+DROP  |M          |5          |1          |HaSpell    |40-65      |0          |300-500    |           |HaSpell Spell at -7 tiles from redarea
+DROP  |N          |5          |1          |HaSpell    |40-65      |0          |100-500    |           |HaSpell Spell at -7 tiles from redarea
+
+      |VECTOR_____|INDEX______|QTY_X_VECT_|TROOPNAME__|DELAY_DROP_|DELAYCHANGE|SLEEPAFTER_|___________|DROP BARBARIANS 
+DROP  |A          |3          |1          |castle     |0          |0          |100-300    |           |launch Castle                                                                      - castle
+DROP  |B          |3          |1          |king       |0          |0          |100-500    |           |launch King                                                                        - king
+DROP  |C          |3          |1          |queen      |0          |0          |100-500    |           |launch Queen                                                                       - queen
+DROP  |C          |5          |1          |Warden     |0          |0          |100-500    |           |launch Grand Warden                                                                - warden
+
+
+WAIT  |1000-1500  |           |           |           |           |           |           |           |
+DROP  |S          |1          |1          |RSpell     |40-65      |0          |300-500    |           |Rage Spell at -7 tiles from redarea
+
+
+WAIT  |1000-2000  |           |           |           |           |           |           |           |
+DROP  |G-I        |1-8        |9-13       |arch       |10-20      |10-30      |10-30      |           |
+DROP  |H-J        |5-9        |9-13       |arch       |10-20      |10-30      |10-30      |           |
+      |-----------------------------------------------------------------------------------------------|
+
+
